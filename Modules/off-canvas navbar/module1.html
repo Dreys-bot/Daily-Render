@@ -1,1 +1,119 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OFF-CANVAS MENU</title>
+
+    <style>
+        body{
+            height:100vh;
+            width:100%;
+        }
+        #myLink{
+            height:100%;
+            width:0;
+            position:fixed;
+            z-index:1;
+            top:9px;
+            left:0;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top:60px;
+            background: black;
+            padding-top: 30px;
+
+        }
+
+        #myLink a{
+            font-size:20px;
+            display:block;
+            transition: 0.3s;
+            color:#818181;
+        }
+        #myLink :hover{
+            color:white;
+            font-size:30px;
+        }
+
+        #fermer{
+            position:absolute;
+            top:0;
+            right:25px;
+            font-size:40px;
+            margin-left: 120px;
+            color:#818181;
+        }
+
+        #accueil{
+            position:relative;
+            top:0;
+            margin:0;
+
+            max-width:100%;
+            width: auto;
+            transition: margin-left .5s;
+            height: 100vh;
+            padding:22px;
+            padding-top: 35px;
+            background-image: radial-gradient(circle at 29% 55%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 4%,transparent 4%, transparent 44%,transparent 44%, transparent 100%),radial-gradient(circle at 85% 89%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 51%,transparent 51%, transparent 52%,transparent 52%, transparent 100%),radial-gradient(circle at 6% 90%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 53%,transparent 53%, transparent 64%,transparent 64%, transparent 100%),radial-gradient(circle at 35% 75%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 6%,transparent 6%, transparent 98%,transparent 98%, transparent 100%),radial-gradient(circle at 56% 75%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 16%,transparent 16%, transparent 23%,transparent 23%, transparent 100%),radial-gradient(circle at 42% 0%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 3%,transparent 3%, transparent 26%,transparent 26%, transparent 100%),radial-gradient(circle at 29% 28%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 51%,transparent 51%, transparent 75%,transparent 75%, transparent 100%),radial-gradient(circle at 77% 21%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 35%,transparent 35%, transparent 55%,transparent 55%, transparent 100%),radial-gradient(circle at 65% 91%, hsla(329,0%,99%,0.05) 0%, hsla(329,0%,99%,0.05) 46%,transparent 46%, transparent 76%,transparent 76%, transparent 100%),linear-gradient(45deg, rgb(83, 91, 235),rgb(76, 11, 174));
+        }
+
+        #bar{
+            position:absolute;
+            top:0;
+            left:15px;
+        }
+        li{
+            margin-bottom:15px;
+            height: 15px;
+
+        }
+
+        .text{
+            text-align:center;
+        }
+        .fleche{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+
+
+<section id="myLink">
+
+        <i id="fermer" onclick="closeNav()" style="cursor:pointer">&times;</i>
+        <ul style="list-style-type: none">
+            <li><a href="#"  class="lien" style="text-decoration: none;"><span class="fleche">&#10152;</span>About</a></li>
+            <li><a href="#"  class="lien" style="text-decoration: none;"><span class="fleche">&#10152;</span>Services</a></li>
+            <li><a href="#"  class="lien" style="text-decoration: none;"><span class="fleche">&#10152;</span>Clients</a></li>
+            <li><a href="#"  class="lien" style="text-decoration: none;"><span class="fleche">&#10152;</span>Contact</a></li>
+        </ul>
+
+</section>
+
+<div id="accueil">
+    <span id="bar" onclick="openNav()" style="cursor:pointer; font-size:35px">&#9776;</span>
+    <h1 class="text" style="font-size:50px">Sidenav Push Example</h1>
+    <p class="text" style="margin-bottom:30px; font-size:25px">Click on the element below to open the side navigation menu, and push this content to the right.</p>
+
+</div>
+
+
+<script>
+    function openNav() {
+        document.getElementById("myLink").style.width = "250px";
+        document.getElementById("accueil").style.marginLeft = "250px";
+    }
+
+    function closeNav(){
+        document.getElementById("myLink").style.width = "0";
+        document.getElementById("accueil").style.marginLeft = "0";
+    }
+
+
+</script>
+</body>
+</html>
