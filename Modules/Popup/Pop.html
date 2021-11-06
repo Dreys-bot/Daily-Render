@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pop-Up</title>
+
+    <style>
+        .open-button{
+            background:#555;
+            color: white;
+            padding: 16px 20px;
+            opacity: 0.8;
+            cursor: pointer;
+            position: fixed;
+            bottom: 25px;
+            right: 28px;
+            width: 280px;
+        }
+        .chat-popup{
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 20px;
+            border: 3px solid #f1f1f1
+        z-index:9;
+        }
+
+        .form{
+            max-width: 300px;
+            padding: 10px;
+            background: white;
+
+        }
+        .form textarea{
+            width: 90%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            resize: none;
+            min-height: 200px;
+        }
+        .form textarea:focus{
+            background: #ddd;
+            outline: none;
+        }
+        .form .btn{
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom:10px;
+            opacity: 0.8;
+        }
+        .form .cancel{
+            background: red;
+        }
+        .form .submit:hover, .open-button{
+            opacity: 1;
+        }
+
+    </style>
+</head>
+
+
+<body>
+<h2>Popup Chat Windows</h2>
+<p>Click on the button at the bottom of this page to open the chat form.</p>
+<p>Note that the button and the form is fixed - they will always be positioned to the bottom of the browser window.</p>
+
+<button class="open-button" onclick="openForm()">Chat</button>
+
+<div class="chat-popup" id="myform">
+    <form action="/action_page.php" class="form">
+        <h1>Chat</h1>
+        <label class="message"><b>Message</b></label><br/>
+        <textarea placeholder="Type message..." name="message" required></textarea>
+        <button type="submit" class="btn submit">Send</button>
+        <button type="submit" onclick="closeForm()" class="btn cancel">cancel</button>
+    </form>
+
+</div>
+
+<script>
+    function openForm(){
+        document.getElementById("myform").style.display="block";
+    }
+
+    function closeForm(){
+        document.getElementById("myform").style.display="none";
+    }
+</script>
+</body>
+</html>
