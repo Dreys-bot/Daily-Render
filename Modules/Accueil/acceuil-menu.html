@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+
+    <style>
+        *, ::before, ::after{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .overlay{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left:0;
+            background: black;
+            z-index:-1;
+            opacity:0.3;
+        }
+        body{
+            background: url("img/fond.PNG");
+
+            font-family: arial, helvetia,sans serif;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            opacity: 1;
+            overflow-x: hidden;
+        }
+
+        .container{
+            position: absolute;
+            top: 30%;
+            left: 5%;
+        }
+        h1{
+            font-size: 100px;
+            text-transform: uppercase;
+            color: white;
+            font-family:Abril fatface sans-serif;
+        }
+        h1 span{
+            position: relative;
+        }
+        .container-btn{
+            position: relative;
+            top: 50px;
+        }
+        .btn{
+            border: 2px solid white;
+            background: transparent;
+            outline: none;
+            font-size: 30px;
+            padding: 20px;
+            width: 300px;
+            color: white;
+            cursor:pointer;
+        }
+
+        .discover{
+            margin-right: 30px;
+        }
+        .btn:hover{
+            background: white;
+            color: #333;
+        }
+        .lignes{
+            position: absolute;
+            top: 6%;
+            left: 5%;
+        }
+        .ligne1{
+            width: 250px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+        }
+        .ligne2{
+            width: 140px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            position: relative;
+            top: 20px;
+        }
+        .medias{
+            list-style-type: none;
+            position: absolute;
+            right: 3.3%;
+            top: 50%;
+            transform: translateY(-30%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:center;
+        }
+        .bulle{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            position: relative;
+        }
+
+         .btn0{
+             width: 40px;
+             height: 40px;
+         }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="lignes">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+    </div>
+
+    <div class="container">
+        <h1><span>you </span><span>need </span><span>some </span><span>rest</span></h1>
+        <div class="container-btn">
+            <button class="btn discover">Discover</button>
+            <button class="btn contact">Contact</button>
+        </div>
+    </div>
+        <ul class="medias">
+            <li class="bulle"><img src="img/packard-bell.png" class="btn0"></li>
+            <li class="bulle"><img src="img/whatsapp.png" class="btn0 "></li>
+            <li class="bulle"><img src="img/twitter.png" class="btn0"></li>
+            <li class="bulle"><img src="img/courriel-de-contact.png" class="btn0"></li>
+        </ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script>
+    const titreSpan=document.querySelectorAll('h1 span');
+    const btn= document.querySelectorAll('.btn');
+    const l1=document.querySelector('.ligne1');
+    const l2=document.querySelector('.ligne2');
+    const medias =document.querySelectorAll('.bulle');
+
+    window.addEventListener('load',() =>{
+        const TL=  gsap.timeline({paused: true});
+
+            TL
+            .staggerFrom(titreSpan, 1, {top:-50 ,opacity:0, ease:"power2.out"}, 0.3)
+            .staggerFrom(btn, 1, {opacity:0, ease:"power2.out"},0.3, '-=1')
+            .from(l1, 1, {width:0, ease:"power2.out"}, '-=2')
+            .from(l2, 1, {width: 0, ease:"power2.out"}, '-=2')
+            .staggerFrom(medias, 1, {right:-200, ease:"power2.out"}, 0.3,'-=1');
+        TL.play();
+    })
+
+</script>
+</body>
+</html>
