@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marquee</title>
+
+
+    <style>
+            *, ::after, ::before{
+                margin:0;
+                padding:0;
+                box-sizing: border-box;
+            }
+
+            :root{
+                --marquee-width:100vw;
+                --offset:20vw;
+                --move-initial:calc(-25% + var(--offset));
+                --move-final: calc(-50% + var(--offset));
+                --item-font-size:7vw;
+                --color-text:#111;
+            }
+
+            body{
+                font-family:Montserrat;
+                background: #000;
+                overflow-x: hidden;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+                outline: none;
+            }
+            nav{
+                padding: 10vh 0 25vh;
+            }
+            .menu-item{
+                position: relative;
+                padding: 0 5vw;
+            }
+            .menu-link{
+                display: inline-block;
+                cursor:pointer;
+                position: relative;
+                -webkit-text-stroke: 1.5px white;
+                -webkit-text-fill-color: transparent;
+            }
+            .menu-link:hover{
+                transition-duration: 0.1s;
+                opacity: 0;
+            }
+            .img-box{
+                position: absolute;
+                height: 50vh;
+                max-height: 400px;
+                opacity: 0;
+                left: 70%;
+                top: 90%;
+                pointer-events: none;
+                transform:  translate(-50%, -50%);
+            }
+            .menu-link:hover + .img-box{
+                opacity: 1;
+                transform: translate(-50%, -50%) rotate(20deg);
+                transition: all 0.4s;
+            }
+            .marquee{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: var(--marquee-width);
+                overflow: hidden;
+                pointer-events: none;
+
+            }
+            .marquee-content{
+                width: fit-content;
+                display: flex;
+                position: relative;
+                transform: translate3d(var(--move-initial), 0, 0);
+                animation: marquee 5s linear infinite;
+                opacity: 0;
+                transition: opacity 0.1s;
+            }
+            .menu-link:hover ~ .marquee .marquee-content{
+                opacity: 1;
+                transition-duration: 0.4s;
+
+            }
+            .menu-link, .marquee span{
+                white-space: nowrap;
+                font-size:var(--item-font-size);
+                font-weight: 950;
+                line-height: 2;
+            }
+            .marquee span{
+                text-align: center;
+                color: red;
+                font-style: italic;
+            }
+
+            @keyframes marquee {
+                0%{
+                    transform: translate3d(var(--move-initial), 0, 0);
+                }
+                100%{
+                    transform: translate3d(var(--move-final), 0, 0);
+                }
+            }
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <nav>
+            <div class="menu-item">
+                <a href="home" class="menu-link">Home</a>
+                <img src="img/1.jpg" class="img-box"/>
+                <div class="marquee">
+                    <div class="marquee-content">
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="menu-item">
+                <a href="Travel" class="menu-link">Travel World</a>
+                <img src="img/2.jpg" class="img-box"/>
+                <div class="marquee">
+                    <div class="marquee-content">
+                        <span>Travel world</span>
+                        <span>Travel world</span>
+                        <span>Travel world</span>
+                        <span>Travel world</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <a href="Experiments" class="menu-link">Experiments</a>
+                <img src="img/3.jpg" class="img-box"/>
+                <div class="marquee">
+                    <div class="marquee-content">
+                        <span>Experiments</span>
+                        <span>Experiments</span>
+                        <span>Experiments</span>
+                        <span>Experiments</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="menu-item">
+                <a href="Our crew" class="menu-link">Our crew</a>
+                <img src="img/4.jpg" class="img-box"/>
+                <div class="marquee">
+                    <div class="marquee-content">
+                        <span>Our crew</span>
+                        <span>Our crew</span>
+                        <span>Our crew</span>
+                        <span>Our crew</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <a href="Contact" class="menu-link">Contact</a>
+                <img src="img/5.jpg" class="img-box"/>
+                <div class="marquee">
+                    <div class="marquee-content">
+                        <span>Contact</span>
+                        <span>Contact</span>
+                        <span>Contact</span>
+                        <span>Contact</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </nav>
+    </main>
+
+</body>
+</html>
