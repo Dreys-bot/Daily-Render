@@ -8,51 +8,54 @@
             background:#333;
         }
         .Menu{
-            width: 150px;
-            height: 150px;
-
-            position: absolute;
-            top: 50%;
+            width: 300px;
+            height: 300px;
+            background: orange;
+            position: fixed;
+            top: 40%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
         .container{
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             background: white;
             position: absolute;
             top: 50%;
             left: 50%;
-            z-index:20;
+
             transform: translate(-50%, -50%);
+            z-index:20;
             border-radius: 50%;
         }
-        img{
-            width: 35px;
-            height: 35px;
-        }
+
         .ligne{
-            width: 25px;
-            height: 2px;
+            width: 40px;
+            height: 5px;
             background: gray;
             border-radius: 5px;
-            position: relative;
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            transition: all 0.1s ease-in-out;
         }
-        .blob{
-            width: 45px;
-            height: 45px;
-            background: #f1f1f1;
-            border-radius: 50%;
+        .icon{
+            width: 40px;
+        }
+       .blob{
+            width: 80px;
+            height: 80px;
+            background: white;
             position: absolute;
-            display: flex;
             top: 50%;
             left: 50%;
+
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            display: flex;
             justify-content: center;
             align-items: center;
-            transform: translate(-50%, -50%);
         }
         .blob1{
             background: pink;
@@ -70,111 +73,127 @@
             background: indianred;
             transition: all 0.2s 0.4s ease-in-out;
         }
-        .icon{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .blob5{
+            background: pink;
+            transition: all 0.2s 0.5s ease-in-out;
         }
+        .blob6{
+            background: greenyellow;
+            transition: all 0.2s 0.6s ease-in-out;
+        }
+        .blob7{
+            background: #ffdac1;
+            transition: all 0.2s 0.7s ease-in-out;
+        }
+        .blob8{
+            background: indianred;
+            transition: all 0.2s 0.8s ease-in-out;
+        }
+
         .Menu.active .blob1{
-            left: 70%;
-            top: 0;
+            left: 100%;
+
         }
         .Menu.active .blob2{
-            left: 110%;
-            top: 35%;
+            left: 85%;
+            top: 85%;
         }
         .Menu.active .blob3{
-            left: 105%;
-            top: 90%;
+
+            top: 100%;
         }
         .Menu.active .blob4{
-            top: 120%;
-
+            top: 85%;
+            left: 15%;
         }
-        .ligne::after{
-            width: 25px;
-            height: 2px;
-            background: gray;
-            border-radius: 5px;
-            position: relative;
+        .Menu.active .blob5{
             top: 50%;
+            left: 0%;
+        }
+        .Menu.active .blob6{
+            top: 15%;
+            left: 15%;
+        }
+        .Menu.active .blob7{
+            top: 0%;
             left: 50%;
-            transform: translate(-50%, -50%);
+        }
+        .Menu.active .blob8{
+            top: 15%;
+            left: 85%;
+        }
+
+        .ligne::after{
+            content: ' ';
+            width: 100%;
+            height: 5px;
+            border-radius: 5px;
+            background: gray;
+
+            position: absolute;
+            top: 10px;
+
+            transition: all 0.2s ease-in-out;
         }
         .ligne::before{
-            width: 25px;
-            height: 2px;
+            content: ' ';
+            width: 100%;
+            height: 5px;
+
             background: gray;
             border-radius: 5px;
-            position: relative;
-            bottom: 10%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: absolute;
+            bottom: 10px;
+
+            transition: all 0.2s ease-in-out;
+
         }
 
+        .Menu.active .ligne::before{
+            transform: translateY(10px) rotate(-45deg);
+        }
+        .Menu.active .ligne{
+            background: transparent;
+        }
+        .Menu.active .ligne::after{
+            transform: translateY(-10px) rotate(45deg);
+        }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <div class="Menu">
-            <div class="container">
-                <div class="ligne">
-                </div>
+
+    <div class="Menu">
+        <div class="container">
+            <div class="ligne">
             </div>
-
-            <div class="blob blob1"><img src="img/twitter.png" class="blob-1  icon"> </div>
-            <div class="blob blob2"><img src="img/whatsapp.png" class="blob-2  icon"> </div>
-            <div class="blob blob3"><img src="img/courriel-de-contact.png" class="blob-3  icon"> </div>
-            <div class="blob blob4"><img src="img/packard-bell.png" class="blob-4  icon"> </div>
-
         </div>
 
-        <h1>dreys-bot</h1>
+        <div class="blob blob1"><img src="img/twitter.png" class="blob-1  icon"> </div>
+        <div class="blob blob2"><img src="img/whatsapp.png" class="blob-2  icon"> </div>
+        <div class="blob blob3"><img src="img/courriel-de-contact.png" class="blob-3  icon"> </div>
+        <div class="blob blob4"><img src="img/packard-bell.png" class="blob-4  icon"> </div>
+        <div class="blob blob5"><img src="img/argent.png" class="blob-4  icon"> </div>
+        <div class="blob blob6"><img src="img/envoyer.png" class="blob-4  icon"> </div>
+        <div class="blob blob7"><img src="img/message.png" class="blob-4  icon"> </div>
+        <div class="blob blob8"><img src="img/instagram.png" class="blob-4  icon"> </div>
+
     </div>
 
-    <div class="enter_form">
-        <h1>dynamic form</h1>
-        <button class="sign-up">Sign-Up</button>
 
-        <div class="form">
-            <form class="formule" action="./action.php">
-                <div class="container_form">
-                    <div class="profile"><img src="#" class="img"/>></div>
 
-                    <div class="container0_form">
-                        <label class="first_name">Name: </label><br/>
 
-                        <input type="name" class="name"/><br/>
 
-                        <label class="second_name">Surname: </label><br/>
 
-                        <input type="name" class="surname"/><br/>
 
-                        <label class="email">email: </label><br/>
-
-                        <input type="email" class="name"/><br/>
-
-                        <p>Your hobbies:</p>
-                        <input type="checkbox" checked="checked" name="hobbies"><label class="dance">Dance</label><br/>
-                        <input type="checkbox"  name="hobbies"><label class="dance">Dance</label><br/>
-
-                        <button  id="cancel" class="cancel">Cancel</button>
-                        <button id="submit" class="submit">submit</button>
-
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-        <script>
-            const e = document.querySelector('.Menu');
-            const elt = document.querySelector('.container');
-            elt.addEventListener('click', function(){
-               e.classList.toggle('active')
-            });
-        </script>
+<script>
+    const e = document.querySelector('.Menu');
+    const elt = document.querySelector('.container');
+    elt.addEventListener('click', function(){
+        e.classList.toggle('active')
+    });
+</script>
 </body>
 </html>
+
+
