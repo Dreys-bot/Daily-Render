@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Quote Machine</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+  <style>
+    body{
+      transition: all 1s;
+    }
+    #quote-box{
+      background:white;
+      width:500px;
+      height:300px;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      box-shadow: 0 0 51px rgba(0, 0, 0, .5);
+      border-radius: 10px;        
+    }
+
+    #new-quote{
+      position:absolute;
+      bottom:25px;
+      right:25px;
+      width:100px;
+      height:40px;
+      font-size:15px;
+      transition: all 1s;
+    }
+
+    .quote{
+      position:absolute;
+      bottom:25px;
+      left:25px;
+      width:40px;
+      height:40px;
+      font-size:15px;
+    }
+    #t-quote{
+      position:absolute;
+      bottom:25px;
+      left:75px;
+      width:40px;
+      height:40px;
+      font-size:15px;
+    }
+    .bi{
+      font-size:25px;
+      color:white;
+      transition: all 1s;
+    }
+    #made{
+      text-decoration:none;
+      color:white;
+      position:absolute;
+      top:70%;
+      left:50%;
+      transform:translate(-50%, -50%);
+    }
+
+    #wrapper{
+      width: 100vw;
+      height: 100vh;
+    }
+    #text{
+
+      width: 380px;
+      height: 120px;
+      position: absolute;
+      top: 15px;
+      left: 65px;
+      align-items: center;
+    }
+    #author{
+
+      width: 80px;
+      height: 30px;
+      position: absolute;
+      top: 185px;
+      left: 385px;
+    }
+    #text p{
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 25px;
+   opacity: 0;
+      transition: all 1s;
+      font-size: 30px;
+      margin-right: 10px;
+    }
+    #author p{
+      position:fixed;
+      top: 185px;
+      left: 385px;
+      opacity: 0;
+      transition: all 1s;
+      font-size: 20px;
+    }
+      button{
+          border-radius:5px;
+      }
+  </style>
+</head>
+<body>
+      <div id="wrapper">
+      </div>
+      <div id="quote-box">
+        <div id="text">
+          <p>" You can never cross the ocean until you have the courage to lose sight of the shore.</p>
+          <p>" I didn’t fail the test. I just found 100 ways to do it wrong.</p>
+          <p>" We must balance conspicuous consumption with conscious capitalism. </p>
+          <p>" We must believe that we are gifted for something, and that this thing, at whatever cost, must be attaine.</p>
+        </div>
+
+        <div id="author">
+          <p>-Marie Curie</p>
+          <p>-Pola</p>
+          <p>-Steve Job</p>
+          <p>-Theodore</p>
+        </div>
+
+        <button id="new-quote">New Quote</button>
+
+          <button class="quote" id="tweet-quote"><a href="twitter.com/intent/tweet"><i class="bi bi-twitter"></i></a></button>
+        
+
+      </div>
+
+      <span id="made">by Audrey</span>
+
+
+      <script>
+        const couleur = ["blue", "green" ,"pink", "orange"];
+        const button = document.getElementById("tweet-quote");
+        const citation = document.querySelectorAll("#text p");
+        const auteur =  document.querySelectorAll("#author p");
+
+        const newQuote = document.getElementById("new-quote");
+
+          
+        var i = Math.floor(Math.random() * couleur.length);  
+          
+          citation[i].style.opacity = 1;
+          citation[i].style.color = couleur[i];
+
+          auteur[i].style.opacity = 1;
+          auteur[i].style.color = couleur[i];
+          
+          document.body.style.background = couleur[i];
+          button.style.background = couleur[i];
+           newQuote.style.background = couleur[i];
+          
+        newQuote.addEventListener('click', function(){
+          var i = Math.floor(Math.random() * couleur.length);//Génère un index aléatoire pour le tableau de couleurs
+
+          document.body.style.background = couleur[i];
+          button.style.background = couleur[i];
+          newQuote.style.background = couleur[i];
+          for(let j=0; j<auteur.length; j++){
+            citation[j].style.opacity = 0;
+            auteur[j].style.opacity = 0;
+          }
+
+          citation[i].style.opacity = 1;
+          citation[i].style.color = couleur[i];
+
+          auteur[i].style.opacity = 1;
+          auteur[i].style.color = couleur[i];
+
+
+          });
+
+
+
+
+
+
+      </script>
+</body>
+</html>
+
+
