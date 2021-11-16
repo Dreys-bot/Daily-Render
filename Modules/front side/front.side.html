@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .flipBox{
+            background: transparent;
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            perspective: 1000px;
+        }
+
+        .flipBox-inner{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flipBox:hover .flipBox-inner{
+            transform: rotateY(180deg);
+        }
+
+        .flipBox-front, .flipBox-back {
+            position: absolute;
+            width: 100%; 
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flipBox-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flipBox-back {
+            background-color: dodgerblue;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+    </style>
+</head>
+<body>
+       <div class="flipBox">
+          <div class="flipBox-inner">
+            <div class="flipBox-front">
+                <h1>Front Side</h1>
+            </div>
+            <div class="flipBox-back">
+                <h1>Front Back</h1>
+            </div>
+          </div>
+       </div>
+</body>
+</html>
