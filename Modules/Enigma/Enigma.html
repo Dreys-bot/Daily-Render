@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: poppins, sans-serif;
+        }
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(#2b1055, #7597de);
+        }
+        section{
+            position:relative;
+            width:100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        section img{
+            position:absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+        }
+        section img#moon{
+            top:-100%;
+            mix-blend-mode: screen;
+        }
+        section img#mountains_behind{
+            bottom:-100%;
+            top:initial;
+        }
+        section img#stars{
+            top:-100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        section img#mountains{
+            bottom:-200%;
+            top:initial;
+            z-index:1000;
+        }
+        #text{
+            position: absolute;
+            color: #fff;
+            font-size: 3vw;
+            font-weight: 200;
+            margin-right: -1900px;
+        }
+        #text span{
+            font-weight: 700;
+        }
+        #btn{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            margin-top:80px ;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 50px;
+            background: #fff;
+            border-radius: 40px;
+            font-size: 1.4em;
+            color:#2b1055;
+            z-index: 10000;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <img src="https://theenigmatech.com/stars.png" id="stars"/>
+        <img src="https://theenigmatech.com/moon.png" id="moon"/>
+        <img src="https://theenigmatech.com/mountains_behind.png" id="mountains_behind"/>
+        <h6 id="text">Anime<span>JS</span></h6>
+        <a href="#" id="btn">Play</a>
+        <img src="https://theenigmatech.com/mountains_front.png" id="mountains"/>
+    </section>
+
+    <script src="anime.min.js"></script>
+    <script>
+        let animation = anime.timeline({
+            autoplay:false
+        });
+        animation
+        .add({
+            targets:'#btn',
+            top: '1500px',
+            duration:500,
+            easing:'easeInOutSine'
+        })
+
+        .add({
+            targets:'#stars',
+            top: '0',
+            duration:1000,
+            easing:'easeInOutSine'
+        })
+
+            .add({
+                targets:'#mountains_behind',
+                bottom: '0',
+                duration:1000,
+                easing:'easeInOutSine'
+            })
+
+        .add({
+            targets:'#mountains',
+            bottom: '0',
+            duration:1000,
+            easing:'easeInOutSine'
+        })
+
+        .add({
+            targets:'#moon',
+            top: '0',
+            duration:500,
+            easing:'easeInOutBack'
+        })
+
+            .add({
+                targets:'#text',
+                marginRight: 0,
+                duration:500,
+                easing:'easeInOutBack'
+            })
+
+            .add({
+                targets:'#btn',
+                top:'50%',
+                duration:1000,
+                easing:'easeInOutBack'
+            });
+        document.querySelector('#btn').onclick = animation.play;
+
+    </script>
+</body>
+</html>
