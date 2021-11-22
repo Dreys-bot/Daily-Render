@@ -1,0 +1,30 @@
+.header {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.todo-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.todo-card {
+  border: 1px dashed #1f133d;
+  height: 50vh;
+  width: 50vh;
+  border-radius: 20px;
+}
+
+.todo-list {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+.close-icon {
+  margin-left: 10px;
+  margin-top: 18px;
+  height: 4vh;
+  width: 4vh;
+}
