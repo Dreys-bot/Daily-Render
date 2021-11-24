@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Appear Site</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        
+    <style>
+        body{
+            
+            overflow-y: hidden;
+        }
+        .site{
+            background: url("img/cartoon-ge5a979c45_640.png") no-repeat;
+            background-color: black;
+            background-position: -10%;
+            width: 100vw;
+            font-family: Lobster, sans-serif;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            animation: site_appear 6s ease-in-out;
+            
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+        }
+        .face1{
+            width: 100%;
+            height: 100vh;
+            color: white;
+            background: linear-gradient(-45deg, #EE7752, #E7327E, #23A6D5, #23D5AB);
+            background-size: 400% 400%;
+            position: relative;
+            animation: change 10s ease-in-out infinite;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 20;
+        }
+        #logo{
+            width: 100px;
+        }
+        ul{
+            list-style-type: none;
+        }
+       #navbar{
+           position: absolute;
+           right:0;
+          display: flex;
+           height: auto;
+           max-width: 490px;
+           width: auto;
+           padding: 0 20px;
+           border: 1px solid black;
+           border-radius: 55px;
+           background-color: white;
+           margin-top: 15px;
+          
+       }
+       #navbar ul{
+          display: flex;
+           padding: 0;
+       }
+       #navbar li{
+           position:relative;
+           margin: auto;
+           font-size: 20px;
+           margin-right: 35px;
+       }
+       .box-area{
+           position: absolute;
+           top:30%;
+           left: 10%;
+           width: 20%;
+           height: 100%;
+           overflow: hidden;
+
+       }
+       .box-area li{
+           position: absolute;
+           display: block;
+           list-style-type: none;
+           width: 15px;
+           height: 15px;
+           background: white;
+           border-radius: 45%;
+           animation: animate 5s linear infinite;
+       }
+        .box-area li:nth-child(1){
+            left: 50%;
+            animation-delay:2s;
+
+        }
+        .box-area li:nth-child(2){
+            left: 20%;
+            animation-delay: 1s;
+
+        }
+        .box-area li:nth-child(3){
+            left: 71%;
+            animation-delay: 5.5s;
+
+        }
+        .box-area li:nth-child(4){
+            left: 90%;
+            animation-delay:3.25s;
+
+        }
+        .box-area li:nth-child(5){
+            left: 30%;
+            animation-delay: 1.25s;
+
+        }
+        .box-area li:nth-child(6){
+            left: 60%;
+            animation-delay: 3.75s;
+
+        }
+        .box-area li:nth-child(7){
+            left: 15%;
+            animation-delay: 3.5s;
+
+        }
+        .box-area li:nth-child(8){
+            left: 80%;
+            animation-delay: 2s;
+
+        }
+        .box-area li:nth-child(9){
+            left: 40%;
+            animation-delay: 6s;
+            animation-duration: 10s;
+        }
+        .box-area li:nth-child(10){
+            left: 95%;
+            animation-delay: 4s;
+
+        }
+        .box-area li:nth-child(11){
+            left: 12%;
+            animation-delay: 4.5s;
+
+        }
+        .box-area li:nth-child(12){
+            left: 18%;
+            animation-delay: 6s;
+
+        }
+        .box-area li:nth-child(13){
+            left: 60%;
+            animation-delay: 5s;
+
+        }
+        .box-area li:nth-child(14){
+            left: 29%;
+            animation-delay: 8s;
+
+        }
+        .box-area li:nth-child(15){
+            left: 21%;
+            animation-delay: 2.5s;
+
+        }
+
+
+        @keyframes animate{
+            0%{
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100%{
+                transform: translateY(700px) rotate(360deg);
+            }
+
+        }
+        #navbar li:hover{
+
+            cursor: pointer;
+        }
+        .glow{
+            color: white;
+            position: absolute;
+            right: 10%;
+            top:40%;
+            text-transform: uppercase;
+            font-size: 80px;
+        }
+
+        .glow {
+            font-size: 90px;
+            color: #fff;
+            text-align: center;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        @-webkit-keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+            }
+
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+            }
+        }
+       
+        
+        @keyframes change {
+            0%{
+                background-position:0 50%;
+            }
+            50%{
+                background-position: 100% 50%;
+            }
+            100%{
+                background-position: 50% 0;
+            }
+
+        }
+       
+        
+        button{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            border: none;
+            background: linear-gradient(pink, violet, white);
+            height: 50px;
+            color: white;
+            text-transform: full-width;
+        }
+        .face{
+            
+            display: none;
+        }
+        .circle{
+            display: block;
+            border-radius: 50%;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+        }
+        .circle1{
+            width:106px;
+            height: 106px;
+            border: 0.1px solid white;
+            animation: appear 4s ease-in-out infinite;
+            
+        }
+        
+        .circle2{
+            width:136px;
+            height: 136px;
+            border: 0.1px solidwhite;
+            animation: circle2 4s ease-in-out infinite;
+            
+        }
+         .circle3{
+            width:156px;
+            height: 156px;
+            border: 0.1px solid white;
+            animation: circle3 4s ease-in-out infinite;
+             
+        }
+         
+        @keyframes appear{
+           
+                0%{
+                    opacity: 0;
+                    width:20px;
+                    height: 20px;
+                }
+                50%{
+                    opacity: 1;
+                    width:126px;
+                    height: 126px;
+                }
+            100%{
+               opacity: 0; 
+            }
+            
+        }
+        
+        @keyframes circle2{
+           
+                0%{
+                    opacity: 0;
+                    width:20px;
+                    height: 20px;
+                }
+                50%{
+                    opacity: 1;
+                    width:156px;
+                    height: 156px;
+                }
+            
+            100%{
+               opacity: 0; 
+            }
+        }
+        
+        @keyframes circle3{
+           
+                0%{
+                    opacity: 0;
+                    width:20px;
+                    height: 20px;
+                }
+                50%{
+                    opacity: 1;
+                    width:186px;
+                    height: 186px;
+                }
+            
+            100%{
+               opacity: 0; 
+            }
+        }
+        
+        @keyframes site_appear{
+            0%{
+                opacity: 0;
+            }
+            
+            100%{
+                opacity: 1;
+            }
+        }
+        .activeCircle{
+            display: block;
+        }
+        
+        .desactive{
+            animation: desappearAll 5s ease-in-out;
+            animation-fill-mode: forwards;
+            animation-delay: 5s;
+        }
+        
+        @keyframes desappearAll{
+            0%{
+                transform: scale(1);
+            }
+            
+            100%{
+                 transform: scale(0);
+                display: none;
+            }
+        }
+        
+        
+    </style>
+    </head>
+    
+    <body>
+        <div class="face1">
+            <button id="btn">CLICK HERE</button>
+            <div  class="face">
+                <div class="circle circle3">
+                <div class="circle circle2">
+                <div class="circle circle1">
+
+                </div>
+                </div>
+                </div>
+            </div>        
+            
+        </div>
+        
+        <div class="site">
+            <div id="navbar">
+                <img src="img/flowers-gef8ece58b_1280.png" id="logo" />
+                <ul>
+
+                    <li>Home</li>
+                    <li>Discover</li>
+                    <li>Contact</li>
+                    <li>Setting</li>
+                </ul>
+            </div>
+            <h1 class="glow">UNDER THE RAIN</h1>
+            <div class="animate-area" >
+                <ul class="box-area">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+        </div>
+    </div> 
+        
+        
+        <script>
+            document.getElementById('btn').addEventListener("click", function(){
+               document.querySelector('.face').classList.toggle("activeCircle");
+                  document.querySelector('.site').classList.toggle("active");
+                
+                document.querySelector('.face1').classList.toggle("desactive"); 
+                
+            });
+        </script>
+    </body>
+</html>
